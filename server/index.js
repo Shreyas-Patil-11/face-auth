@@ -12,7 +12,7 @@ faceapi.env.monkeyPatch({ Canvas, Image });
 
 const app = express();
 app.use(cors({
-    origin: ["http://localhost:5173","https://face-authjs.vercel.app/"], // Replace with your frontend URL
+    origin: ["https://face-authjs.vercel.app/", "http://localhost:5173",], // Replace with your frontend URL
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"]
 }));
@@ -62,7 +62,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // User Registration with Encrypted Face Descriptor
-app.post('https://face-auth-j7h8.onrender.com/register', upload.single('image'), async (req, res) => {
+app.post('/register', upload.single('image'), async (req, res) => {
     const { username, descriptor } = req.body;
 
     if (!username) {
@@ -92,7 +92,7 @@ app.post('https://face-auth-j7h8.onrender.com/register', upload.single('image'),
 });
 
 // Authenticate User with Decrypted Face Descriptor
-app.post('https://face-auth-j7h8.onrender.com/login', upload.single('image'), async (req, res) => {
+app.post('/login', upload.single('image'), async (req, res) => {
     console.log("Received Login Request:", req.body);
 
     const { descriptor } = req.body;
