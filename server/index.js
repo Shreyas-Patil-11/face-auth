@@ -12,8 +12,8 @@ faceapi.env.monkeyPatch({ Canvas, Image });
 
 const app = express();
 app.use(cors({
-    origin: ["https://face-authjs.vercel.app/", "http://localhost:5173",], // Replace with your frontend URL
-    methods: ["GET", "POST"],
+    origin: ["https://face-authjs.vercel.app", "http://localhost:5173",], // Replace with your frontend URL
+    methods: ["GET", "POST","PUT","DELETE"],
     allowedHeaders: ["Content-Type"]
 }));
 
