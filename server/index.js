@@ -17,6 +17,8 @@ app.use(cors({
     allowedHeaders: ["Content-Type"]
 }));
 
+app.options("*", cors());
+
 app.use(express.json());
 app.use('/models', express.static(path.join(__dirname, 'models')));
 
